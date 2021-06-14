@@ -8,11 +8,7 @@ class CalendarsController < ApplicationController
 
   # 予定の保存
   def create
-<<<<<<< Updated upstream
-    #binding.pry
-=======
-    binding.pry
->>>>>>> Stashed changes
+<
     Plan.create(plan_params)
     redirect_to action: :index
   end
@@ -20,11 +16,7 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
-<<<<<<< Updated upstream
     params.require(:plan).permit(:date, :plan)
-=======
-    params.require(calendars_url).permit(:date, :plan)
->>>>>>> Stashed changes
   end
 
   def getWeek
