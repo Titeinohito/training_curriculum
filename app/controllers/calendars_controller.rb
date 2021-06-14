@@ -2,17 +2,12 @@ class CalendarsController < ApplicationController
 
   # １週間のカレンダーと予定が表示されるページ
   def index
-    getWeek
+    get_week
     @plan = Plan.new
   end
 
   # 予定の保存
   def create
-<<<<<<< Updated upstream
-    #binding.pry
-=======
-    binding.pry
->>>>>>> Stashed changes
     Plan.create(plan_params)
     redirect_to action: :index
   end
@@ -20,14 +15,10 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
-<<<<<<< Updated upstream
     params.require(:plan).permit(:date, :plan)
-=======
-    params.require(calendars_url).permit(:date, :plan)
->>>>>>> Stashed changes
   end
 
-  def getWeek
+  def get_week
     @wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
@@ -51,6 +42,7 @@ class CalendarsController < ApplicationController
       end
 
       days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans, :wday => @wdays[wday_num]}
+      
       @week_days.push(days)
     end
 
